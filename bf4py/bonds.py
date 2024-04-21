@@ -5,8 +5,9 @@ from .connector import BF4PyConnector
 from datetime import date, datetime, timezone, time
 
 class Bonds():
-    def __init__(self, connector: BF4PyConnector = None, default_isin = None):
+    def __init__(self, connector: BF4PyConnector = None, default_isin = None, default_mic = None):
         self.default_isin = default_isin
+        self.default_mic = default_mic
         
         if connector is None:
             self.connector = BF4PyConnector()
@@ -39,7 +40,7 @@ class Bonds():
         params = {'isin': isin,
                   'mic': mic}
         
-        data = self.connector.data_request('master_data_bond', params)
+        data = self.connector.connector.data_request('master_data_bond', params)
         
         return data
     
