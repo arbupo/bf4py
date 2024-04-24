@@ -66,6 +66,12 @@ This new class holds the https connection and provides functions via submodules 
 	.live_quotes(...)
 	.bid_ask_overview(...)
 
+### bf4py.bonds 
+	.bond_data(...)
+	.search_criteria(...)
+	.search_parameter_template(...)
+	.search(...)
+
 ## Examples
 
 	from bf4py import BF4Py
