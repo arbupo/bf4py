@@ -1,16 +1,3 @@
-def extract_fields(data, keys):
-    """
-    Extracts specified fields from a list of dictionaries.
-
-    Parameters:
-        data (list of dict): The list of dictionaries to extract fields from.
-        keys (list of str): The list of keys to extract from each dictionary.
-
-    Returns:
-        list of dict: List of dictionaries containing only the specified keys.
-    """
-    return [{key: page[key] for key in keys} for page in data]
-
 def generate_plot(data):
     import pandas as pd
     import matplotlib.pyplot as plt
