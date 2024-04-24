@@ -40,7 +40,7 @@ class Bonds():
         params = {'isin': isin,
                   'mic': mic}
         
-        data = self.connector.connector.data_request('master_data_bond', params)
+        data = self.connector.data_request('master_data_bond', params)
         
         return data
     
