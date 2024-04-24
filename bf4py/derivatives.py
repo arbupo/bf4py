@@ -10,6 +10,11 @@ class Derivatives():
     def __init__(self, connector: BF4PyConnector = None, default_isin = None, default_mic = 'XETR'):
         self.default_isin = default_isin
         self.default_mic = default_mic
+
+        if default_mic is None:
+            self.default_mic = 'XETR'
+        else:
+            self.default_mic = default_mic
         
         if connector is None:
             self.connector = BF4PyConnector()
