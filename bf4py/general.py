@@ -6,15 +6,20 @@ from datetime import date
 from .connector import BF4PyConnector
 
 class General():
-    def __init__(self, connector: BF4PyConnector = None, default_isin = None):
+    def __init__(self, connector: BF4PyConnector = None, default_isin = None, default_mic = None):
         self.default_isin = default_isin
+
+        if default_mic is None:
+            self.default_mic = 'XETR'
+        else:
+            self.default_mic = default_mic
         
         if connector is None:
             self.connector = BF4PyConnector()
         else:
             self.connector = connector
     
-    def eod_data(self, min_date: date, max_date: date=date.today(), isin: str = None, mic:str='XETR'):
+    def eod_data(self, min_date: date, max_date: date=date.today(), isin: str = None):
         """
         Function for retrieving OHLC data including volume by pieces and cash amount (Euro) for selected date range.
         
@@ -35,6 +40,9 @@ class General():
             Returns list of dicts with trading data. Elements are OHLC, date and turnover in Euro and Pieces.
     
         """
+
+        mic = self.default_mic
+
         if isin is None:
             isin = self.default_isin
         assert isin is not None, 'No ISIN given'

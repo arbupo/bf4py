@@ -23,6 +23,6 @@ class BF4Py():
         self.news = News(self.connector, self.default_isin)
         self.company = Company(self.connector, self.default_isin)
         self.derivatives = Derivatives(self.connector, self.default_isin)
-        self.general = General(self.connector, self.default_isin)
+        self.general = General(self.connector, self.default_isin, self.default_mic)
         self.live_data = LiveData(self.connector, self.default_isin)
 
