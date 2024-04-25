@@ -17,11 +17,11 @@ def generate_plot(data):
 from bf4py import BF4Py
 from datetime import date
 
-isin = 'US912810SN90'
+isin = 'AT0000A2HLC4'
 mic = 'XFRA'
 
-bf4py = BF4Py(default_isin=isin,default_mic=mic) 
-bond_information = bf4py.bonds.bond_data()
-bond_data = bf4py.general.eod_data(min_date=date(2018,1,1))
+bf4py = BF4Py(default_mic=mic) 
+bond_information = bf4py.bonds.bond_data(isin=isin)
+bond_data = bf4py.general.eod_data(min_date=date(2018,1,1), isin=isin)
 
 generate_plot(bond_data)
