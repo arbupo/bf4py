@@ -14,7 +14,7 @@ issuers = []
 for bond_object in result:
     bond_title = bond_object['name']['originalValue']
     issuer = re.match(r'^.*?(?=\d)', bond_title).group(0)
-    if issuer not in issuers and issuer is not "":
+    if issuer not in issuers and issuer != "":
         issuers.append(issuer)
 
 issuers_list = [{'issuer': issuer} for issuer in issuers]
