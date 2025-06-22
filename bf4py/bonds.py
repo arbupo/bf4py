@@ -132,6 +132,10 @@ class Bonds():
 
         """
         CHUNK_SIZE = 1000
+
+        # extract user limit, if any
+        user_limit = params.get("limit", None)
+
         i = 0
         maxCount = CHUNK_SIZE + 1
         params['limit'] = CHUNK_SIZE
@@ -147,5 +151,10 @@ class Bonds():
             bonds_list += data['data']
             
             i += 1
-        
+
+            if user_limit and len(bonds_list) >= user_limit:
+                break
+
+        if user_limit:
+            return bonds_list[:user_limit]
         return bonds_list
