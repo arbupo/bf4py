@@ -55,9 +55,9 @@ class Bonds():
             Dict.
     
         """
-        params = {'lang': 'de'}
+        params = {'lang': 'en'}
         
-        data = self.connector.search_get_request('bond_search_criteria_data', params)
+        data = self.connector.search_request('bond_search_criteria_data', params)
         
         return data
     
