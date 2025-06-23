@@ -107,6 +107,8 @@ class BF4PyConnector():
         req = self.session.get(url, headers=header, timeout=(3.5, 15))
         data = json.loads(req.text)
 
+        return data
+
     # Functions for STREAM requests
 
     def stream_request(self, function: str, params: dict):
