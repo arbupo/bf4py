@@ -89,11 +89,11 @@ class BF4PyConnector():
     def search_request(self, function: str, params: dict):
         import json
         
-        url = self._get_search_url(function, params)
+        url = self._get_search_url(function, {})
         header = self._create_ids(url)
         header['accept'] = 'application/json, text/plain, */*'
         header['content-type'] = 'application/json; charset=UTF-8'
-        req = self.session.get(url, headers=header, timeout=(3.5, 15))
+        req = self.session.post(url, headers=header, timeout=(3.5, 15), json=params)
         data = json.loads(req.text)
         
         return data
