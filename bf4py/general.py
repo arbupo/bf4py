@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from datetime import date
+from datetime import date, timedelta
 
 from .connector import BF4PyConnector
 
@@ -47,6 +47,7 @@ class General():
             isin = self.default_isin
         assert isin is not None, 'No ISIN given'
         
+        min_date = min_date - timedelta(days=4)
         date_delta = max_date - min_date
         params = {'isin' : isin,
                   'mic': mic,
@@ -59,7 +60,7 @@ class General():
         
         data = self.connector.data_request('price_history', params)
         
-        return data['data']
+        return data['data'][0]
     
     def data_sheet_header(self, isin:str = None):
         """
