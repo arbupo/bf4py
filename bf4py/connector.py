@@ -97,6 +97,15 @@ class BF4PyConnector():
         data = json.loads(req.text)
         
         return data
+    
+    def search_get_request(self, function: str, params: dict):
+        import json
+        url = self._get_search_url(function, params)
+        header = self._create_ids(url)
+        header['accept'] = 'application/json, text/plain, */*'
+        header['content-type'] = 'application/json; charset=UTF-8'
+        req = self.session.get(url, headers=header, timeout=(3.5, 15))
+        data = json.loads(req.text)
 
     # Functions for STREAM requests
 
