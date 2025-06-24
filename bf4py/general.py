@@ -60,7 +60,7 @@ class General():
         
         data = self.connector.data_request('price_history', params)
         
-        return [data['data'][0]]
+        return data['data'][0]
     
     def data_sheet_header(self, isin:str = None):
         """
