@@ -105,7 +105,7 @@ class Bonds():
                       "turnoverPrevDayMax": None, #int
                       "issueVolumeMin": None, #int
                       "issueVolumeMax": None, #int
-                      "lang": "de",
+                      "lang": "en",
                       "offset": 0,
                       "limit": 25,
                       "sorting": "NAME",
